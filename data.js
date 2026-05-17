@@ -5,7 +5,7 @@
    See SETUP.md for the Sheets + Apps Script + Forms wiring.
    ───────────────────────────────────────────────────────────── */
 
-const USE_SHEETS = false;
+const USE_SHEETS = true;
 const SHEETS_URL = "https://script.google.com/macros/s/AKfycbwMM4ugYdYRMItWXrRCGgUmRR6Sw0pmWMR3BEIw1mbpm_IAYSCCgTmWVI5OF-UsNObC/exec";
 
 const DATA = {
