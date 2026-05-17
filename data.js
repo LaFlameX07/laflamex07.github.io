@@ -340,7 +340,8 @@ const DATA = {
 async function loadData() {
   if (!USE_SHEETS) return DATA;
   try {
-    const res = await fetch(SHEETS_URL + "?t=" + Date.now());
+    /*const res = await fetch(SHEETS_URL + "?t=" + Date.now()); */
+    const res = await fetch(SHEETS_URL);
     if (!res.ok) throw new Error("Sheets fetch failed");
     return await res.json();
   } catch (e) {
