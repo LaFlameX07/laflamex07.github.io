@@ -3,58 +3,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Amit Murkalmath — LP, 2026</title>
-<meta name="description" content="Amit Murkalmath · Album · 2026 · Data Engineering, ML, Automation" />
+<title>Amit Murkalmath</title>
+<meta name="description" content="Amit Murkalmath — Data Engineer. ML, automation, data systems." />
 <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600&family=VT323&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  // bootstrap theme before paint
+  (function () {
+    const saved = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const theme = saved || (prefersDark ? "dark" : "light");
+    if (theme === "dark") document.documentElement.setAttribute("data-theme", "dark");
+  })();
+</script>
 
 <style>
   :root {
-    --bg: #f0e8d8;
-    --bg-warm: #e8dcc4;
-    --bg-deep: #ddc9a5;
-    --ink: #1a1612;
-    --ink-soft: #4a3f33;
-    --ink-faded: #8a7a66;
-    --accent: #c84b1f;
-    --accent-deep: #8a2f10;
-    --rule: #c9b896;
-
-    --cover-1: #e8825a;
-    --cover-2: #c84b1f;
-    --cover-3: #6a1f08;
-    --cover-text: #f0e8d8;
-
-    --serif: "Fraunces", "Times New Roman", serif;
-    --mono: "JetBrains Mono", ui-monospace, monospace;
-    --pixel: "VT323", monospace;
-
-    --pad: clamp(1.25rem, 4vw, 3rem);
-    --max: 960px;
+    --bg: #f5f3ef;
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a48;
+    --ink-faded: #8a8a86;
+    --rule: #d8d4cc;
+    --accent: #1a1a1a;
+    --accent-hover: #b85a3e;
+    --player-bg: #1a1a1a;
+    --player-ink: #f5f3ef;
   }
-
-  /* ─── ICEMAN dark theme — Travis DBR cold blue ─── */
-  [data-theme="ice"] {
-    --bg: #0a0e1a;
-    --bg-warm: #121826;
-    --bg-deep: #1a2236;
-    --ink: #e6ecf5;
-    --ink-soft: #a8b3c7;
-    --ink-faded: #5a6580;
-    --accent: #6ea8ff;
-    --accent-deep: #b8d4ff;
-    --rule: #2a3550;
-
-    --cover-1: #4a7fcc;
-    --cover-2: #1e3a6e;
-    --cover-3: #0a1530;
-    --cover-text: #e6ecf5;
-  }
-  [data-theme="ice"] body {
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.7 0 0 0 0 0.8 0 0 0 0 1 0 0 0 0.06 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  [data-theme="dark"] {
+    --bg: #141413;
+    --ink: #ebe8e1;
+    --ink-soft: #a8a59d;
+    --ink-faded: #6a6862;
+    --rule: #2a2826;
+    --accent: #ebe8e1;
+    --accent-hover: #d49a7e;
+    --player-bg: #ebe8e1;
+    --player-ink: #141413;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -63,402 +52,246 @@
   body {
     background: var(--bg);
     color: var(--ink);
-    font-family: var(--serif);
-    font-size: 17px;
-    line-height: 1.65;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
-    padding-bottom: 6rem;
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.09 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    background-size: 200px 200px;
+    text-rendering: optimizeLegibility;
+    padding: 4rem 1.5rem 6rem;
   }
-  ::selection { background: var(--accent); color: var(--bg); }
-  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--ink); color: var(--bg); }
 
-  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  a:hover { color: var(--accent-hover); border-bottom-color: var(--accent-hover); }
 
-  .topbar {
-    display: flex; justify-content: space-between; align-items: baseline;
-    padding: 1.25rem var(--pad);
-    max-width: var(--max); margin: 0 auto;
-    font-family: var(--mono); font-size: 0.75rem;
-    color: var(--ink-soft); letter-spacing: 0.04em;
-    gap: 1rem;
+  .wrap {
+    max-width: 620px;
+    margin: 0 auto;
   }
-  .topbar .cat { font-family: var(--pixel); font-size: 1.4rem; color: var(--ink); }
-  .topbar .meta .dot {
-    display: inline-block; width: 7px; height: 7px;
-    background: var(--accent); border-radius: 50%;
-    margin-right: 0.4rem; vertical-align: middle;
-    animation: pulse 2.4s ease-in-out infinite;
+
+  /* ─── TOP NAV ─────────────────────────────── */
+  nav.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    font-size: 13px;
+    color: var(--ink-soft);
   }
-  .topbar .right { display: flex; align-items: center; gap: 1rem; }
+  nav.top .who { color: var(--ink); font-weight: 500; }
+  nav.top .who a { border-bottom: none; }
+  nav.top .right { display: flex; gap: 1.25rem; align-items: center; }
+  nav.top .right a { border-bottom: none; color: var(--ink-soft); }
+  nav.top .right a:hover { color: var(--accent-hover); }
+
   .theme-toggle {
     background: transparent;
-    border: 1px solid var(--rule);
+    border: none;
     color: var(--ink-soft);
-    font-family: var(--mono); font-size: 0.68rem;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.35rem 0.7rem;
+    font: inherit;
+    font-size: 13px;
     cursor: pointer;
-    transition: all 0.2s;
+    padding: 0;
     line-height: 1;
   }
-  .theme-toggle:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .theme-toggle .ic {
-    font-family: var(--pixel); font-size: 0.9rem;
-    margin-right: 0.3rem; vertical-align: -1px;
-  }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  .theme-toggle:hover { color: var(--accent-hover); }
 
-  .album {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 2.5rem;
-    align-items: end;
-    padding: 4rem 0 3rem;
+  /* ─── HERO ───────────────────────────────── */
+  .hero h1 {
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
   }
-  @media (max-width: 720px) {
-    .album { grid-template-columns: 1fr; gap: 1.5rem; }
-  }
-
-  .cover {
-    width: 280px; height: 280px;
-    background: radial-gradient(ellipse at 30% 30%, var(--cover-1) 0%, var(--cover-2) 40%, var(--cover-3) 100%);
-    position: relative;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 24px 50px -20px rgba(0,0,0,0.5), inset 0 0 60px rgba(0,0,0,0.2);
-    overflow: hidden;
-  }
-  .cover::before {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    mix-blend-mode: multiply; opacity: 0.6;
-  }
-  .cover .am {
-    position: absolute; left: 24px; top: 20px;
-    font-family: var(--pixel); font-size: 2.6rem;
-    color: var(--cover-text); letter-spacing: 0.08em;
-    text-shadow: 0 2px 0 rgba(0,0,0,0.3);
-  }
-  .cover .yr {
-    position: absolute; right: 24px; top: 28px;
-    font-family: var(--mono); font-size: 0.78rem;
-    color: color-mix(in srgb, var(--cover-text) 85%, transparent); letter-spacing: 0.15em;
-  }
-  .cover .lp {
-    position: absolute; left: 24px; bottom: 22px;
-    font-family: var(--serif); font-style: italic;
-    font-size: 1.7rem; color: var(--cover-text);
-    line-height: 1; letter-spacing: -0.01em; font-weight: 400;
-  }
-  .cover .runtime {
-    position: absolute; right: 24px; bottom: 28px;
-    font-family: var(--mono); font-size: 0.72rem;
-    color: color-mix(in srgb, var(--cover-text) 70%, transparent); letter-spacing: 0.1em;
-  }
-
-  .album-info .breadcrumb {
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--ink-faded); letter-spacing: 0.12em;
-    text-transform: uppercase; margin-bottom: 0.8rem;
-  }
-  .album-info h1 {
-    font-family: var(--serif); font-weight: 300;
-    font-size: clamp(2.4rem, 7vw, 4.5rem);
-    line-height: 0.95; letter-spacing: -0.03em;
+  .hero p {
+    color: var(--ink-soft);
     margin-bottom: 1rem;
-    font-variation-settings: "opsz" 144;
-  }
-  .album-info h1 em { font-style: italic; color: var(--accent-deep); }
-  .album-info .credits {
-    font-family: var(--mono); font-size: 0.82rem;
-    color: var(--ink-soft); letter-spacing: 0.02em;
-    margin-bottom: 1.2rem;
-  }
-  .album-info .credits b { color: var(--ink); font-weight: 600; }
-  .album-info .tagline {
-    font-size: 1.05rem; color: var(--ink-soft);
-    max-width: 34rem; line-height: 1.55;
-  }
-
-  .side-label {
-    margin: 4rem 0 1rem;
-    display: flex; align-items: baseline; gap: 1.5rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 2px solid var(--ink);
-  }
-  .side-label .big {
-    font-family: var(--pixel); font-size: 3rem;
-    color: var(--ink); letter-spacing: 0.04em; line-height: 0.9;
-  }
-  .side-label .desc {
-    font-family: var(--mono); font-size: 0.78rem;
-    color: var(--ink-faded); letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .side-label .stamp {
-    margin-left: auto;
-    font-family: var(--mono); font-size: 0.75rem;
-    color: var(--accent); letter-spacing: 0.1em;
-  }
-
-  .track {
-    display: grid;
-    grid-template-columns: 2.5rem 1fr auto;
-    gap: 1.2rem;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--rule);
-    align-items: start;
-  }
-  .track:hover { background: rgba(232,220,196,0.3); }
-  .track .num {
-    font-family: var(--mono); font-size: 0.95rem;
-    color: var(--ink-faded); font-weight: 500;
-    padding-top: 0.25rem;
-  }
-  .track .body h3 {
-    font-family: var(--serif); font-size: 1.35rem;
-    font-weight: 500; letter-spacing: -0.015em;
-    margin-bottom: 0.15rem; text-transform: uppercase;
-  }
-  .track .body .sub {
-    font-family: var(--mono); font-size: 0.78rem;
-    color: var(--ink-faded); letter-spacing: 0.03em;
-    margin-bottom: 0.7rem;
-  }
-  .track .body .sub em {
-    color: var(--accent-deep); font-style: normal; font-weight: 500;
-  }
-  .track .body p {
-    font-size: 0.98rem; line-height: 1.55;
-    color: var(--ink-soft); margin-bottom: 0.4rem;
-    max-width: 44rem;
-  }
-  .track .body .stack {
-    font-family: var(--mono); font-size: 0.75rem;
-    color: var(--ink-faded); letter-spacing: 0.02em;
-    margin-top: 0.4rem;
-  }
-  .track .runtime {
-    font-family: var(--mono); font-size: 0.85rem;
-    color: var(--ink-faded); padding-top: 0.3rem;
-  }
-  .track a.listen {
-    display: inline-block; margin-top: 0.6rem;
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--accent); letter-spacing: 0.08em;
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--accent); padding-bottom: 2px;
-  }
-  .track a.listen:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
-
-  .track.intro .body p { font-size: 1.05rem; line-height: 1.65; }
-
-  .lyric {
-    margin: 3rem auto;
-    text-align: center;
-    font-family: var(--serif); font-style: italic;
-    font-size: 1.15rem; line-height: 1.5;
-    color: var(--accent-deep);
-    white-space: pre-line;
     max-width: 32rem;
-    position: relative;
   }
-  .lyric::before, .lyric::after {
-    content: "✦"; display: block;
-    color: var(--accent); font-size: 0.7rem;
-    margin: 0.6rem 0;
-    font-style: normal;
+  .hero .location {
+    font-size: 13px;
+    color: var(--ink-faded);
+    margin-top: 1.5rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .hero .location::before {
+    content: "";
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent-hover);
   }
 
-  .liner-section { margin: 3rem 0; }
-  .liner-head {
-    display: flex; align-items: baseline; gap: 1rem;
+  /* ─── SECTIONS ──────────────────────────── */
+  section { margin-top: 3.5rem; }
+
+  section h2 {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-faded);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     margin-bottom: 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-  .liner-head h2 {
-    font-family: var(--pixel); font-size: 1.7rem;
-    font-weight: 400; letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .liner-head .tag {
-    font-family: var(--mono); font-size: 0.72rem;
-    color: var(--ink-faded); letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-left: auto;
   }
 
-  .pub, .edu {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .pub:last-child, .edu:last-child { border-bottom: 0; }
-  .pub h3, .edu h3 {
-    font-family: var(--serif); font-size: 1.08rem;
-    font-weight: 500; font-style: italic;
-    margin-bottom: 0.3rem;
-  }
-  .pub p, .edu p {
-    font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 0.3rem;
-  }
-  .edu .place {
-    font-family: var(--mono); font-size: 0.78rem;
-    color: var(--ink-faded); letter-spacing: 0.03em;
-  }
-  .pub a {
-    font-family: var(--mono); font-size: 0.75rem;
-    color: var(--accent); letter-spacing: 0.04em;
-    border-bottom: 1px solid var(--accent);
-  }
-  .pub a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
-
-  /* REMIX CREDITS — grouped certifications */
-  .remix-group {
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--rule);
+  /* ─── ENTRY (used for experience, projects, education, pubs) ─ */
+  .entry {
     display: grid;
-    grid-template-columns: 9rem 1fr;
-    gap: 0.5rem 1.5rem;
+    grid-template-columns: 5rem 1fr;
+    gap: 1.5rem;
+    padding: 0.85rem 0;
   }
-  .remix-group:last-child { border-bottom: 0; }
-  .remix-group .label {
-    font-family: var(--mono); font-size: 0.78rem;
-    color: var(--accent); letter-spacing: 0.06em;
-    text-transform: uppercase;
+  .entry + .entry { border-top: 1px solid var(--rule); }
+
+  .entry .date {
+    font-size: 13px;
+    color: var(--ink-faded);
+    padding-top: 0.1rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .entry .body {
+    min-width: 0;
+  }
+  .entry h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.15rem;
+  }
+  .entry h3 a {
+    border-bottom: none;
+    color: var(--ink);
+  }
+  .entry h3 a:hover {
+    color: var(--accent-hover);
+  }
+  .entry h3 a::after {
+    content: " →";
+    color: var(--ink-faded);
+    font-weight: 400;
+  }
+  .entry .meta {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+  }
+  .entry p {
+    color: var(--ink-soft);
+    margin-bottom: 0.4rem;
+    font-size: 14px;
+  }
+  .entry .stack {
+    font-size: 13px;
+    color: var(--ink-faded);
+    margin-top: 0.3rem;
+  }
+
+  @media (max-width: 520px) {
+    .entry { grid-template-columns: 1fr; gap: 0.3rem; }
+    .entry .date { padding-top: 0; }
+  }
+
+  /* ─── ABOUT body uses entry layout w/o the date column ─── */
+  .about p {
+    color: var(--ink-soft);
+    margin-bottom: 1rem;
+    max-width: 36rem;
+  }
+
+  /* ─── STACK list ──────────────────────────── */
+  .stack-list {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.4rem 1.5rem;
+  }
+  .stack-list dt {
+    font-size: 13px;
+    color: var(--ink-faded);
+    padding-top: 0.1rem;
+  }
+  .stack-list dd {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  @media (max-width: 520px) {
+    .stack-list { grid-template-columns: 1fr; gap: 0.1rem; }
+    .stack-list dd { margin-bottom: 0.6rem; }
+  }
+
+  /* ─── REMIX / CERTS ────────────────────── */
+  .cert-group {
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.4rem 1.5rem;
+    padding: 0.6rem 0;
+  }
+  .cert-group + .cert-group { border-top: 1px solid var(--rule); }
+  .cert-group .label {
+    font-size: 13px;
+    color: var(--ink-faded);
     padding-top: 0.15rem;
   }
-  .remix-group ul {
+  .cert-group ul {
     list-style: none;
-    font-size: 0.95rem;
+    font-size: 14px;
     color: var(--ink-soft);
     line-height: 1.65;
   }
-  .remix-group li::before {
-    content: "→ ";
-    color: var(--ink-faded);
-  }
-  @media (max-width: 640px) {
-    .remix-group { grid-template-columns: 1fr; gap: 0.2rem; }
+  @media (max-width: 520px) {
+    .cert-group { grid-template-columns: 1fr; gap: 0.1rem; }
   }
 
-  .skills-grid {
-    display: grid; grid-template-columns: 8rem 1fr;
-    gap: 0.6rem 1.5rem;
+  /* ─── CONTACT FOOTER ────────────────────── */
+  .contact {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
   }
-  .skills-grid dt {
-    font-family: var(--mono); font-size: 0.78rem;
-    color: var(--ink-faded); letter-spacing: 0.04em;
-    padding-top: 0.15rem;
+  .contact p { color: var(--ink-soft); margin-bottom: 1rem; }
+  .contact .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    font-size: 14px;
   }
-  .skills-grid dd { font-size: 1rem; color: var(--ink-soft); line-height: 1.5; }
-  @media (max-width: 640px) {
-    .skills-grid { grid-template-columns: 1fr; gap: 0.2rem; }
-    .skills-grid dd { margin-bottom: 0.8rem; }
-  }
-
-  .liner-notes {
-    margin-top: 5rem;
-    padding: 2.5rem 0 1rem;
-    border-top: 2px solid var(--ink);
-  }
-  .liner-notes h2 {
-    font-family: var(--serif); font-weight: 300; font-style: italic;
-    font-size: clamp(1.9rem, 4.5vw, 2.8rem);
-    margin-bottom: 1.5rem;
-    line-height: 1.05; letter-spacing: -0.02em;
-  }
-  .liner-notes h2 a {
-    color: var(--accent); border-bottom: 2px solid var(--accent);
-  }
-  .liner-notes h2 a:hover { color: var(--accent-deep); border-color: var(--accent-deep); }
-
-  .credits-block {
-    display: grid;
-    grid-template-columns: 7rem 1fr;
-    gap: 0.5rem 1.5rem;
-    margin: 1.5rem 0;
-    font-family: var(--mono); font-size: 0.82rem;
-    color: var(--ink-soft); letter-spacing: 0.02em;
-  }
-  .credits-block dt {
-    color: var(--ink-faded); text-transform: uppercase;
-    font-size: 0.7rem; letter-spacing: 0.1em;
-    padding-top: 0.15rem;
-  }
-  .credits-block a {
-    border-bottom: 1px solid var(--ink-faded);
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .credits-block a:hover { color: var(--accent); border-color: var(--accent); }
+  .contact .links a { color: var(--ink-soft); }
 
   .colophon {
-    margin-top: 2.5rem;
-    font-family: var(--mono); font-size: 0.7rem;
-    color: var(--ink-faded); letter-spacing: 0.04em;
-    line-height: 1.7;
-    border-top: 1px dashed var(--rule);
-    padding-top: 1.5rem;
+    margin-top: 3rem;
+    font-size: 12px;
+    color: var(--ink-faded);
   }
 
+  /* ─── NOW PLAYING ───────────────────────── */
   .player {
     position: fixed;
     bottom: 1.2rem; right: 1.2rem;
-    background: var(--ink); color: var(--bg);
-    padding: 0.65rem 0.9rem 0.65rem 0.65rem;
-    display: flex; align-items: center; gap: 0.8rem;
-    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.4);
+    background: var(--player-bg);
+    color: var(--player-ink);
+    padding: 0.55rem 0.85rem;
+    display: flex; align-items: center; gap: 0.65rem;
     max-width: 280px;
     z-index: 50;
-    border-radius: 4px;
-  }
-  [data-theme="ice"] .player {
-    background: var(--bg-deep); color: var(--ink);
-    border: 1px solid var(--rule);
-  }
-  .player .mini-cover {
-    width: 38px; height: 38px;
-    background: linear-gradient(135deg, var(--cover-1), var(--cover-2) 60%, var(--cover-3));
-    flex-shrink: 0;
-    position: relative;
-    overflow: hidden;
-  }
-  .player .mini-cover::after {
-    content: ""; position: absolute; inset: 0;
-    background-image:
-      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='2' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.3'/></svg>");
-    mix-blend-mode: overlay;
-  }
-  .player .info { min-width: 0; flex: 1; }
-  .player .label {
-    font-family: var(--pixel); font-size: 0.85rem;
-    color: var(--accent); letter-spacing: 0.06em;
-    line-height: 1;
-  }
-  .player .title {
-    font-family: var(--serif); font-style: italic;
-    font-size: 0.9rem; line-height: 1.2;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    margin-top: 2px;
-  }
-  .player .artist {
-    font-family: var(--mono); font-size: 0.65rem;
-    color: color-mix(in srgb, currentColor 60%, transparent);
-    letter-spacing: 0.04em; margin-top: 1px;
-    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    border-radius: 999px;
+    font-size: 12px;
+    box-shadow: 0 8px 24px -12px rgba(0,0,0,0.25);
   }
   .player .bars {
     display: flex; gap: 2px; align-items: flex-end;
-    height: 14px; margin-left: 4px;
+    height: 10px;
   }
   .player .bars span {
-    width: 2px; background: var(--accent);
+    width: 2px; background: var(--player-ink);
     animation: eq 0.9s ease-in-out infinite;
+    opacity: 0.85;
   }
   .player .bars span:nth-child(1) { animation-delay: 0s;   height: 60%; }
   .player .bars span:nth-child(2) { animation-delay: 0.2s; height: 100%; }
@@ -468,58 +301,47 @@
     0%, 100% { transform: scaleY(0.4); }
     50% { transform: scaleY(1); transform-origin: bottom; }
   }
-  @media (max-width: 520px) {
-    .player { bottom: 0.7rem; right: 0.7rem; max-width: 240px; padding: 0.5rem 0.7rem 0.5rem 0.5rem; }
+  .player .info { min-width: 0; line-height: 1.25; }
+  .player .title {
+    font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-
-  .reveal { opacity: 0; transform: translateY(12px);
-    animation: rise 0.7s cubic-bezier(.2,.7,.2,1) forwards; }
-  .reveal-1 { animation-delay: 0.05s; }
-  .reveal-2 { animation-delay: 0.18s; }
-  .reveal-3 { animation-delay: 0.32s; }
-  .reveal-4 { animation-delay: 0.46s; }
-  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
-  @media (prefers-reduced-motion: reduce) {
-    .reveal { animation: none; opacity: 1; transform: none; }
+  .player .artist {
+    color: color-mix(in srgb, currentColor 65%, transparent);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    font-size: 11px;
+  }
+  @media (max-width: 520px) {
+    .player { bottom: 0.8rem; right: 0.8rem; max-width: 220px; }
   }
 </style>
 </head>
 <body>
 
-<script>
-  // Bootstrap theme before paint so there's no flash
-  (function () {
-    const saved = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const theme = saved || (prefersDark ? "ice" : "cream");
-    if (theme === "ice") document.documentElement.setAttribute("data-theme", "ice");
-  })();
-</script>
+<div class="wrap">
 
-<header class="topbar">
-  <span class="cat">CAT# AM-001</span>
-  <span class="right">
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
-      <span class="ic" id="theme-ic">☼</span><span id="theme-label">cream</span>
-    </button>
-    <span class="meta">
-      <span class="dot"></span><span id="topbar-loc"></span>
+  <nav class="top">
+    <span class="who"><a href="/">Amit Murkalmath</a></span>
+    <span class="right">
+      <a href="https://github.com/LaFlameX07" target="_blank" rel="noopener">github</a>
+      <a href="https://www.linkedin.com/in/amit-murkalmath/" target="_blank" rel="noopener">linkedin</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle theme">
+        <span id="theme-label">dark</span>
+      </button>
     </span>
-  </span>
-</header>
+  </nav>
 
-<main class="wrap" id="root"></main>
+  <main id="root"></main>
 
-<aside class="player" aria-label="Now spinning">
-  <div class="mini-cover"></div>
-  <div class="info">
-    <div class="label">[♪ NOW SPINNING]</div>
-    <div class="title" id="np-title">—</div>
-    <div class="artist" id="np-artist">—</div>
-  </div>
+</div>
+
+<aside class="player" aria-label="Now playing">
   <div class="bars" aria-hidden="true">
     <span></span><span></span><span></span><span></span>
+  </div>
+  <div class="info">
+    <div class="title" id="np-title">—</div>
+    <div class="artist" id="np-artist">—</div>
   </div>
 </aside>
 
@@ -529,130 +351,124 @@
     { "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]
   ));
 
-  // pick a random track from the rotation list
-  function pickNowSpinning(list) {
+  // pick a random now-playing entry on each load
+  function pickNow(list) {
     if (!Array.isArray(list) || !list.length) return null;
     return list[Math.floor(Math.random() * list.length)];
   }
 
+  // turn "Mumbai · Mar '26 — Jun '26" into just "'26"
+  // (we already have the readable form in meta; here we extract a short tag for the date column)
+  function shortDate(place) {
+    if (!place) return "";
+    // find the last apostrophe-year, e.g. '26
+    const m = String(place).match(/'(\d{2})(?!.*'\d{2})/);
+    if (m) return "'" + m[1];
+    return "";
+  }
+
   function render(d) {
     const m = d.meta;
-    document.title = `${m.name} — LP, ${m.album_year}`;
-    document.getElementById("topbar-loc").textContent = m.location;
 
-    const np = pickNowSpinning(d.now_playing_rotation);
+    // now-playing
+    const np = pickNow(d.now_playing_rotation);
     if (np) {
-      document.getElementById("np-title").textContent  = np.track;
-      document.getElementById("np-artist").textContent = `${np.artist} · ${np.album} (${np.year})`;
+      document.getElementById("np-title").textContent = np.track;
+      document.getElementById("np-artist").textContent = `${np.artist}`;
     }
 
     const root = document.getElementById("root");
-    const trackCount = d.experience.length + d.projects.length + 1; // intro + exp + projects
 
-    // ALBUM HERO
-    const heroHTML = `
-      <section class="album">
-        <div class="cover reveal reveal-1">
-          <div class="am">AM</div>
-          <div class="yr">LP / ${esc(m.album_year)}</div>
-          <div class="lp">side A<br>side B</div>
-          <div class="runtime">${trackCount} tracks</div>
-        </div>
-        <div class="album-info">
-          <div class="breadcrumb reveal reveal-1">Album · ${esc(m.album_year)} · ${trackCount} tracks · ${esc(m.role)}</div>
-          <h1 class="reveal reveal-2">${esc(m.name.split(" ")[0])} <em>${esc(m.name.split(" ").slice(1).join(" "))}</em>.</h1>
-          <div class="credits reveal reveal-3">
-            ${d.hero.stats.map(s => `<b>${esc(s)}</b>`).join(" &nbsp;·&nbsp; ")}
-          </div>
-          <p class="tagline reveal reveal-4">${esc(d.hero.tagline)}</p>
-        </div>
+    /* HERO -------------------------------------------------- */
+    const hero = `
+      <section class="hero" style="margin-top:0;">
+        <h1>${esc(m.name)} — ${esc(m.role)}</h1>
+        <p>${esc(d.hero.tagline)}</p>
+        <div class="location">${esc(m.location)}</div>
       </section>
     `;
 
-    const sideAHead = `
-      <div class="side-label">
-        <div class="big">A</div>
-        <div class="desc">${esc(d.side_a_intro)}</div>
-        <div class="stamp">tracks 01–06</div>
-      </div>
+    /* ABOUT ------------------------------------------------- */
+    const about = `
+      <section class="about">
+        <h2>About</h2>
+        ${d.about.body.map(p => `<p>${esc(p)}</p>`).join("")}
+      </section>
     `;
 
-    const intro = d.about;
-    const introHTML = `
-      <article class="track intro">
-        <div class="num">${esc(intro.track)}</div>
-        <div class="body">
-          <h3>${esc(intro.title)}</h3>
-          <div class="sub">about · the artist</div>
-          ${intro.body.map(p => `<p>${esc(p)}</p>`).join("")}
-        </div>
-        <div class="runtime">${esc(intro.runtime)}</div>
-      </article>
-    `;
-
-    const expHTML = d.experience.map(e => `
-      <article class="track">
-        <div class="num">${esc(e.track)}</div>
-        <div class="body">
-          <h3>${esc(e.title)}</h3>
-          <div class="sub"><em>${esc(e.role)}</em> · ${esc(e.org)} · ${esc(e.place)}</div>
-          ${e.bullets.map(b => `<p>${esc(b)}</p>`).join("")}
-        </div>
-        <div class="runtime">${esc(e.runtime)}</div>
-      </article>
-    `).join("");
-
-    const divider1 = `<div class="lyric">${esc(d.dividers[0])}</div>`;
-
-    const sideBHead = `
-      <div class="side-label">
-        <div class="big">B</div>
-        <div class="desc">${esc(d.side_b_intro)}</div>
-        <div class="stamp">tracks 07–${String(6 + d.projects.length).padStart(2,"0")}</div>
-      </div>
-    `;
-
-    const projHTML = d.projects.map(p => `
-      <article class="track">
-        <div class="num">${esc(p.track)}</div>
-        <div class="body">
-          <h3>${esc(p.title)}</h3>
-          <div class="sub"><em>${esc(p.subtitle)}</em></div>
-          <p>${esc(p.body)}</p>
-          <div class="stack">${esc(p.stack)}</div>
-          <a class="listen" href="${esc(p.link)}" target="_blank" rel="noopener">view ↗</a>
-        </div>
-        <div class="runtime">${esc(p.runtime)}</div>
-      </article>
-    `).join("");
-
-    const divider2 = `<div class="lyric">${esc(d.dividers[1])}</div>`;
-
-    const pubsHTML = `
-      <section class="liner-section">
-        <div class="liner-head">
-          <h2>Publications</h2>
-          <span class="tag">bonus tracks</span>
-        </div>
-        ${d.publications.map(p => `
-          <div class="pub">
-            <h3>${esc(p.title)}</h3>
-            <p>${esc(p.desc)}</p>
-            <a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.label)} →</a>
+    /* EXPERIENCE ------------------------------------------- */
+    const exp = `
+      <section>
+        <h2>Experience</h2>
+        ${d.experience.map(e => `
+          <div class="entry">
+            <div class="date">${esc(shortDate(e.place))}</div>
+            <div class="body">
+              <h3>${esc(e.role)} — ${esc(e.org)}</h3>
+              <div class="meta">${esc(e.place)}</div>
+              ${e.bullets.map(b => `<p>${esc(b)}</p>`).join("")}
+            </div>
           </div>
         `).join("")}
       </section>
     `;
 
-    // REMIX CREDITS — certifications
-    const remixHTML = `
-      <section class="liner-section">
-        <div class="liner-head">
-          <h2>Remix Credits</h2>
-          <span class="tag">certifications</span>
-        </div>
+    /* PROJECTS --------------------------------------------- */
+    const proj = `
+      <section>
+        <h2>Selected projects</h2>
+        ${d.projects.map(p => `
+          <div class="entry">
+            <div class="date"></div>
+            <div class="body">
+              <h3><a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.subtitle || p.title)}</a></h3>
+              <p>${esc(p.body)}</p>
+              <div class="stack">${esc(p.stack)}</div>
+            </div>
+          </div>
+        `).join("")}
+      </section>
+    `;
+
+    /* PUBLICATIONS ----------------------------------------- */
+    const pubs = `
+      <section>
+        <h2>Publications</h2>
+        ${d.publications.map(p => `
+          <div class="entry">
+            <div class="date"></div>
+            <div class="body">
+              <h3>${p.link && p.link !== "#" ? `<a href="${esc(p.link)}" target="_blank" rel="noopener">${esc(p.title)}</a>` : esc(p.title)}</h3>
+              <p>${esc(p.desc)}</p>
+            </div>
+          </div>
+        `).join("")}
+      </section>
+    `;
+
+    /* EDUCATION -------------------------------------------- */
+    const edu = `
+      <section>
+        <h2>Education</h2>
+        ${d.education.map(e => `
+          <div class="entry">
+            <div class="date">${esc(shortDate(e.place))}</div>
+            <div class="body">
+              <h3>${esc(e.school)}</h3>
+              <div class="meta">${esc(e.degree)} · ${esc(e.place)}</div>
+              ${e.detail ? `<p>${esc(e.detail)}</p>` : ""}
+            </div>
+          </div>
+        `).join("")}
+      </section>
+    `;
+
+    /* CERTIFICATIONS --------------------------------------- */
+    const certs = `
+      <section>
+        <h2>Certifications</h2>
         ${d.remix_credits.map(g => `
-          <div class="remix-group">
+          <div class="cert-group">
             <div class="label">${esc(g.group)}</div>
             <ul>
               ${g.items.map(i => `<li>${esc(i)}</li>`).join("")}
@@ -662,86 +478,52 @@
       </section>
     `;
 
-    const eduHTML = `
-      <section class="liner-section">
-        <div class="liner-head">
-          <h2>Education</h2>
-          <span class="tag">where it was recorded</span>
-        </div>
-        ${d.education.map(e => `
-          <div class="edu">
-            <h3>${esc(e.school)}</h3>
-            <p>${esc(e.degree)}</p>
-            <p class="place">${esc(e.place)}</p>
-            ${e.detail ? `<p>${esc(e.detail)}</p>` : ""}
-          </div>
-        `).join("")}
-      </section>
-    `;
-
-    const stackHTML = `
-      <section class="liner-section">
-        <div class="liner-head">
-          <h2>Stack</h2>
-          <span class="tag">instruments &amp; gear</span>
-        </div>
-        <dl class="skills-grid">
+    /* STACK ------------------------------------------------ */
+    const stack = `
+      <section>
+        <h2>Stack</h2>
+        <dl class="stack-list">
           ${d.stack.map(s => `<dt>${esc(s.k)}</dt><dd>${esc(s.v)}</dd>`).join("")}
         </dl>
       </section>
     `;
 
-    const divider3 = `<div class="lyric">${esc(d.dividers[2])}</div>`;
-
-    const linerHTML = `
-      <section class="liner-notes">
-        <h2>Bookings, features, just to chat —<br>
+    /* CONTACT ---------------------------------------------- */
+    const contact = `
+      <section class="contact">
+        <h2>Contact</h2>
+        <p>Open to roles in data engineering, ML, and automation from Aug '26.</p>
+        <div class="links">
           <a href="mailto:${esc(m.email)}">${esc(m.email)}</a>
-        </h2>
-
-        <dl class="credits-block">
-          <dt>Written by</dt>      <dd>${esc(m.name)}</dd>
-          <dt>Recorded in</dt>     <dd>${esc(m.location)}</dd>
-          <dt>Influences</dt>      <dd>${esc(d.influences)}</dd>
-          <dt>Github</dt>          <dd><a href="${esc(m.socials.github)}" target="_blank" rel="noopener">${esc(m.socials.github.replace("https://",""))}</a></dd>
-          <dt>LinkedIn</dt>        <dd><a href="${esc(m.socials.linkedin)}" target="_blank" rel="noopener">${esc(m.socials.linkedin.replace("https://www.",""))}</a></dd>
-          <dt>Leetcode</dt>        <dd><a href="${esc(m.socials.leetcode)}" target="_blank" rel="noopener">${esc(m.socials.leetcode.replace("https://",""))}</a></dd>
-          <dt>Spotify</dt>         <dd><a href="${esc(m.socials.spotify)}" target="_blank" rel="noopener">↗ open</a></dd>
-          <dt>Direct line</dt>     <dd><a href="tel:${esc(m.phone.replace(/\s/g, ""))}">${esc(m.phone)}</a></dd>
-        </dl>
-
+          <a href="${esc(m.socials.github)}" target="_blank" rel="noopener">github</a>
+          <a href="${esc(m.socials.linkedin)}" target="_blank" rel="noopener">linkedin</a>
+          <a href="${esc(m.socials.leetcode)}" target="_blank" rel="noopener">leetcode</a>
+          <a href="${esc(m.socials.spotify)}" target="_blank" rel="noopener">spotify</a>
+        </div>
+        <p class="colophon">© ${esc(m.album_year)} ${esc(m.name)}</p>
       </section>
     `;
 
-    root.innerHTML =
-      heroHTML +
-      sideAHead + introHTML + expHTML + divider1 +
-      sideBHead + projHTML + divider2 +
-      pubsHTML + remixHTML + eduHTML + stackHTML +
-      divider3 + linerHTML;
+    root.innerHTML = hero + about + exp + proj + pubs + edu + certs + stack + contact;
   }
 
   function setupThemeToggle() {
     const btn = document.getElementById("theme-toggle");
-    const ic = document.getElementById("theme-ic");
     const label = document.getElementById("theme-label");
     if (!btn) return;
-
     const sync = () => {
-      const isIce = document.documentElement.getAttribute("data-theme") === "ice";
-      ic.textContent = isIce ? "❄" : "☼";
-      label.textContent = isIce ? "cool" : "cream";
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      label.textContent = dark ? "light" : "dark";
     };
     sync();
-
     btn.addEventListener("click", () => {
-      const isIce = document.documentElement.getAttribute("data-theme") === "ice";
-      if (isIce) {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      if (dark) {
         document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("theme", "cream");
+        localStorage.setItem("theme", "light");
       } else {
-        document.documentElement.setAttribute("data-theme", "ice");
-        localStorage.setItem("theme", "ice");
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
       }
       sync();
     });
