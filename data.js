@@ -26,20 +26,9 @@ const DATA = {
 
   hero: {
     tagline: "Data engineer who ships. Currently running internal data ops at peopleHum — Salesforce, Metabase, cron jobs, AI SDR pipelines, GA4 dashboards. Three published papers in ML/healthcare. Headed to UMD for an MS in Data Science this fall.",
-    stats: [
-      "11 tracks",
-      "Recorded 2021–2026",
-      "B.E. CSE (Honors in DS) · VESIT · 9.3 GPA",
-      "IELTS 8.5 · C2",
-    ],
   },
 
-  side_a_intro: "Side A — the artist",
-
   about: {
-    track: "01",
-    title: "INTRO",
-    runtime: "0:58",
     body: [
       "I work at the intersection of data engineering, ML, and automation. Day-to-day at peopleHum: keeping internal data systems alive across Webflow, Salesforce, Zoho, Metabase, and a maze of internal portals. Before that: AI SDR voice agents, lead-scoring pipelines, Sheets/Apps Script engines that quietly run marketing.",
       "I like systems that quietly do their job. The best work I've done has been the kind nobody notices — cron jobs that don't break, invoices that aggregate themselves, dashboards that load on time. On the side, three published papers on CNNs for flood mapping and Alzheimer's detection, and I led ops at CSI-VESIT through college.",
@@ -48,37 +37,29 @@ const DATA = {
 
   experience: [
     {
-      track: "02",
-      title: "DATA OPS",
-      runtime: "4:31",
+      title: "Data Engineer",
       org: "peopleHum",
       role: "Data Engineer",
       place: "Mumbai · Mar '26 — Jun '26",
       bullets: [
-        "Managing internal data and application operations across Webflow, internal finance and sales portals, onboarding systems, Salesforce, Zoho Voice, Salestrail, Metabase, and identifier-based user provisioning.",
+        "Managing internal data and application operations across Webflow, Salesforce, Zoho Voice, Salestrail, Metabase, and identifier-based user provisioning.",
         "Maintaining data warehouses, cron jobs, invoice aggregation, auth flows, and internal reporting workflows for GTM teams.",
       ],
     },
     {
-      track: "03",
-      title: "AUTOMATIONS",
-      runtime: "3:48",
+      title: "Automation Engineer",
       org: "peopleHum",
       role: "Automation Engineer — Marketing",
       place: "Mumbai · Sep '25 — Mar '26",
       bullets: [
         "Built AI SDR automation for voice/email outreach, lead scoring, and LinkedIn enrichment.",
-        "Engineered a multi-stage AI lead-scoring pipeline (n8n + Grok + Google Sheets) — pulled CRM leads, found LinkedIn URLs via search API, scored profiles 0–30 on seniority and fit, wrote enriched rows back to Sheets.",
-        "Designed a Fibonacci-cadence email drip engine (Apps Script + Gmail API) — industry/country segmentation, open/click tracking via a 1×1 pixel web app, auto-stop on reply, KPI dashboard in-sheet.",
-        "Unified GA4 + web traffic into IST-aligned Fri–Thu Sheets dashboards with YTD/MTD/WTD/Day breakdowns by channel.",
-        "Built a Playwright + Pytest synthetic-form QA suite — automated regression across 20+ lead forms with CSV logging.",
+        "Designed a Fibonacci-cadence email drip engine (Apps Script + Gmail API) with open/click tracking via a 1×1 pixel web app, auto-stop on reply, KPI dashboard in-sheet.",
+        "Unified GA4 + web traffic into IST-aligned Fri–Thu Sheets dashboards. Built a Playwright + Pytest synthetic-form QA suite for 20+ lead forms.",
       ],
     },
     {
-      track: "04",
-      title: "DASHBOARDS",
-      runtime: "2:15",
-      org: "JSW (South West Port)",
+      title: "Python Developer Intern",
+      org: "JSW · South West Port",
       role: "Python Developer Intern",
       place: "Goa · Nov '23 — Dec '23",
       bullets: [
@@ -86,9 +67,7 @@ const DATA = {
       ],
     },
     {
-      track: "05",
-      title: "EARLY WORK",
-      runtime: "2:02",
+      title: "Python Developer Intern",
       org: "JSW",
       role: "Python Developer Intern",
       place: "Ratnagiri · May '23 — Jul '23",
@@ -98,11 +77,9 @@ const DATA = {
       ],
     },
     {
-      track: "06",
-      title: "CSI-VESIT",
-      runtime: "2:29",
-      org: "Computer Society of India · VESIT chapter",
-      role: "Technical Head → Operations Secretary → Jr. Ops Officer",
+      title: "Technical Head / Operations",
+      org: "CSI-VESIT",
+      role: "Technical Head → Operations Secretary",
       place: "Mumbai · Jan '23 — May '25",
       bullets: [
         "Led the technical wing as Technical Head (Sep '24 — May '25), ran ops as Operations Secretary the year prior, started as Jr. Ops Officer.",
@@ -111,97 +88,78 @@ const DATA = {
     },
   ],
 
-  side_b_intro: "Side B — the work",
-
+  /* projects — real names (no song-style fakes).
+     `title` shows on the right column (short label).
+     `subtitle` is the main bold heading. */
   projects: [
     {
-      track: "07",
-      title: "AUTOPILOT",
-      runtime: "5:12",
-      subtitle: "E2E Email Drip Engine — Apps Script + Gmail",
-      stack: "Google Apps Script · Gmail API · Sheets · OpenRouter · HTML email",
+      title: "Apps Script · Gmail",
+      subtitle: "E2E Email Drip Engine",
+      stack: "Apps Script · Gmail API · Sheets · OpenRouter · HTML email",
       body: "Sheet-driven segmented drip campaign. Industry × country template routing, Fibonacci follow-up cadence (1/2/3/5/8/13/21 days), open & click tracking via a 1×1 pixel web app, auto-stop on reply or bounce, KPIs piped to a Marketing Tracker dashboard in-sheet.",
       link: "https://github.com/LaFlameX07",
     },
     {
-      track: "08",
-      title: "RINGER",
-      runtime: "4:08",
-      subtitle: "AI SDR Voice Agent + Synthetic Form QA",
+      title: "Voice AI · QA",
+      subtitle: "AI SDR Voice Agent & Form QA",
       stack: "Voice AI · Twilio · Playwright · Pytest · Python · CRM",
-      body: "Outbound voice agent + a Playwright/Pytest synthetic-data harness that hammers 20+ lead-gen forms across countries and form types, verifying success states via ARIA roles and logging every run to CSV.",
+      body: "Outbound voice agent + Playwright/Pytest synthetic-data harness that hammers 20+ lead-gen forms across countries and form types, verifying success states via ARIA roles and logging every run to CSV.",
       link: "https://github.com/LaFlameX07",
     },
     {
-      track: "09",
-      title: "LEAD ALCHEMY",
-      runtime: "3:44",
-      subtitle: "AI Lead Scoring Pipeline — n8n + Grok",
+      title: "n8n · AI Pipeline",
+      subtitle: "AI Lead Scoring Pipeline",
       stack: "n8n · Grok / OpenRouter · Serper · Salesforce · Google Sheets",
       body: "End-to-end CRM-to-Sheets enrichment workflow. Pulls fresh leads, finds LinkedIn profile + company URL via search API, runs two complementary AI scoring passes (metric + holistic), merges branches, writes a final scored row back. Cron-scheduled, fully unattended.",
       link: "https://github.com/LaFlameX07",
     },
     {
-      track: "10",
-      title: "GA4 FRIDAYS",
-      runtime: "3:01",
+      title: "GA4 · Sheets",
       subtitle: "GA4 → Sheets Marketing Dashboard",
       stack: "Apps Script · GA4 Data API · Google Sheets",
       body: "Pipes GA4 into a Sheet that thinks in IST Friday–Thursday weeks. YTD / MTD / WTD / Day blocks per channel, a Jan–Dec matrix, scheduled refresh triggers. Single source of truth for new vs active users.",
       link: "https://github.com/LaFlameX07",
     },
     {
-      track: "11",
-      title: "FROM ABOVE",
-      runtime: "3:55",
-      subtitle: "EmergeSense — Satellite Flood/Drought Detection",
+      title: "Satellite ML",
+      subtitle: "EmergeSense — Flood Detection",
       stack: "CNNs · Google Earth Engine · React · Flutter",
       body: "CNN-based flood and drought detection on multi-temporal Sentinel-1 SAR imagery, with React dashboards and Flutter mobile views for emergency response teams. Published research compared U-Net vs DeepLabV3 across encoder configurations.",
       link: "https://github.com/LaFlameX07",
     },
     {
-      track: "12",
-      title: "BLUE PRINTS",
-      runtime: "4:22",
+      title: "Healthcare ML",
       subtitle: "CognitiveCare — Alzheimer's Detection",
       stack: "CNN · VGG16 · InceptionV3 · React · MRI imaging",
       body: "Trained CNN/VGG16/InceptionV3 models on MRI scans for Alzheimer's detection (~91% accuracy), tuned via transfer learning and AUC tracking. Deployed a React interface with severity-based recommendations and cognitive games. Published in two journals.",
       link: "https://github.com/LaFlameX07",
     },
     {
-      track: "13",
-      title: "WEDA",
-      runtime: "2:48",
-      subtitle: "Wearable Fall Detection Analysis",
+      title: "Time-series ML",
+      subtitle: "Wearable Fall Detection",
       stack: "Python · Jupyter · Time-series ML",
       body: "Sem-8 Applied Data Science project — analyzed wearable sensor streams for fall-event detection. Feature engineering, model comparison, the works.",
       link: "https://github.com/LaFlameX07/WEDA-Fall-Detection-Analysis",
     },
     {
-      track: "14",
-      title: "LEGALEASE",
-      runtime: "2:33",
+      title: "NLP",
       subtitle: "NLP Legal Document Summarization",
       stack: "Python · NLP · Jupyter",
       body: "Sem-7 NLP project — summarization and clause extraction on legal documents.",
       link: "https://github.com/LaFlameX07/LegalEase-NLP-Powered-Legal-Document-Summarization-and-Analysis",
     },
     {
-      track: "15",
-      title: "DISTRIBUTED TIC-TAC-TOE",
-      runtime: "1:54",
-      subtitle: "gRPC multiplayer over the network",
+      title: "Distributed Systems",
+      subtitle: "Distributed Tic-Tac-Toe (gRPC)",
       stack: "Python · gRPC · Protocol Buffers",
       body: "Sem-8 Distributed Computing project — multiplayer tic-tac-toe over gRPC, with synchronized state across clients.",
       link: "https://github.com/LaFlameX07/Distributed-Multiplayer-Tic-Tac-Toe-A-gRPC-Based-Implementation",
     },
     {
-      track: "16",
-      title: "META",
-      runtime: "1:33",
-      subtitle: "This portfolio",
+      title: "Personal",
+      subtitle: "Sheets-Driven Portfolio (this site)",
       stack: "HTML · CSS · Google Sheets · Apps Script",
-      body: "Sheets-driven personal site I can edit from a Google Form on my phone — tracklist layout, no framework, no build step. Content lives in a spreadsheet; the page reads it through an Apps Script endpoint.",
+      body: "Sheets-driven personal site I can edit from a Google Sheet on my phone — bold editorial layout, no framework, no build step. Content lives in a spreadsheet; the page reads it through an Apps Script endpoint.",
       link: "https://github.com/LaFlameX07",
     },
   ],
@@ -220,18 +178,16 @@ const DATA = {
       label: "PDF",
     },
     {
-      title: "Cognitive Care: Comprehensive Detection and Management of AD",
+      title: "Cognitive Care: Detection and Management of AD",
       desc:  "CNN-based Alzheimer's detection with cognitive games and support forum. Alochana Journal, Mar 2024.",
       link:  "#",
       label: "DOI",
     },
   ],
 
-  // Remix credits — the section name you asked for.
-  // Grouped, not music-coded, so it doesn't get tired.
   remix_credits: [
     {
-      group: "Job simulations",
+      group: "Job Simulations",
       items: [
         "Goldman Sachs — Operations Analyst · Forage · Feb 2025",
         "BCG — Data Science · Forage · Jan 2025",
@@ -281,26 +237,26 @@ const DATA = {
   education: [
     {
       school: "University of Maryland, College Park",
-      degree: "M.S. Data Science",
-      place:  "Aug '26 → · incoming",
+      degree: "M.S. Data Science · incoming",
+      place:  "Aug '26 →",
       detail: "Principles of Data Science · Principles of Machine Learning · Big Data Systems",
     },
     {
-      school: "VESIT — Vivekanand Education Society's Institute of Technology, Mumbai",
-      degree: "B.E. Computer Engineering · Honors in Data Science",
-      place:  "Nov '21 — May '25 · CGPA 9.3 / Honors 9.33",
-      detail: "Machine Learning · Algorithms & DS · DBMS · Big Data Analytics · NLP · Distributed Computing · Cloud · Cryptography",
-    },
-    {
-      school: "DAV Public School, New Panvel",
-      degree: "HSC · PCM with Computer Science",
-      place:  "Jun '19 — Apr '21 · 95%",
+      school: "VESIT, Mumbai",
+      degree: "B.E. Computer Engineering · Honors in Data Science · GPA 9.3/10",
+      place:  "Nov '21 — May '25",
       detail: "",
     },
     {
       school: "DAV Public School, New Panvel",
-      degree: "SSC · 10th Standard",
-      place:  "Jun '17 — Apr '19 · 95.2%",
+      degree: "HSC · PCM with Computer Science · 95%",
+      place:  "Jun '19 — Apr '21",
+      detail: "",
+    },
+    {
+      school: "DAV Public School, New Panvel",
+      degree: "SSC · 10th Standard · 95.2%",
+      place:  "Jun '17 — Apr '19",
       detail: "",
     },
   ],
@@ -310,38 +266,71 @@ const DATA = {
     { k: "Data & ML",  v: "Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, PostgreSQL, MS SQL Server" },
     { k: "Automation", v: "n8n, Google Apps Script, Playwright, Selenium, Pytest, Twilio, OpenRouter" },
     { k: "Tools",      v: "Flask, FastAPI, Docker, Git, Grafana, Metabase, Salesforce, Zoho, Webflow, GA4, Tableau, Power BI" },
-    { k: "Spoken",     v: "English (C2 · IELTS 8.5) · Hindi · Kannada · Marathi · elementary Russian & Sanskrit" },
+    { k: "Spoken",     v: "English (C2 · IELTS 8.5) · Hindi · Kannada · Marathi" },
   ],
 
-  dividers: [
-    "still up at 3am writing scripts that\nnobody asked for but everybody needs",
-    "panvel to college park\nsame laptop, different time zone",
-    "if it works in prod ship it\nif it works locally pray harder",
-  ],
-
-  // ROTATING now-playing — the page picks a different track on each load
+  // NEW: cover (image URL) and spotify (track URL) per song
+  // The site picks one at random on each load and shows the cover + Spotify link in the popup
   now_playing_rotation: [
-    { track: "Family Business",                    artist: "Kanye West",                  album: "The College Dropout",       year: "2004" },
-    { track: "Off The Grid",                       artist: "Kanye West",                  album: "Donda",                     year: "2021" },
-    { track: "QUINTANA PT. 2",                     artist: "Travis Scott",                album: "Days Before Rodeo",         year: "2014" },
-    { track: "Skeletons",                          artist: "Travis Scott",                album: "ASTROWORLD",                year: "2018" },
-    { track: "Tous les garçons et les filles",     artist: "Françoise Hardy",             album: "Tous les garçons…",         year: "1962" },
-    { track: "Kletka",                             artist: "Molchat Doma",                album: "Etazhi",                    year: "2018" },
-    { track: "Don't Cry",                          artist: "J Dilla",                     album: "Donuts",                    year: "2006" },
-    { track: "Ode To The Mets",                    artist: "The Strokes",                 album: "The New Abnormal",          year: "2020" },
-    { track: "São Paulo",                          artist: "The Weeknd & Anitta",         album: "Hurry Up Tomorrow",         year: "2025" },
-    { track: "What Did I Miss?",                   artist: "Drake",                       album: "—",                         year: "2025" },
+    {
+      track: "Family Business", artist: "Kanye West", album: "The College Dropout", year: "2004",
+      cover: "https://i.scdn.co/image/ab67616d0000b273d9194aa18fa4c9362b47464f",
+      spotify: "https://open.spotify.com/track/0YGGmgEYVYrSPNGcrM5skl",
+    },
+    {
+      track: "Off The Grid", artist: "Kanye West", album: "Donda", year: "2021",
+      cover: "https://i.scdn.co/image/ab67616d0000b273e02d792cc1fb5660cfea7e5d",
+      spotify: "https://open.spotify.com/track/5RnQZxe0fTH3I5kIWGtPwm",
+    },
+    {
+      track: "Quintana Pt. 2", artist: "Travis Scott", album: "Days Before Rodeo", year: "2014",
+      cover: "",
+      spotify: "",
+    },
+    {
+      track: "Skeletons", artist: "Travis Scott", album: "ASTROWORLD", year: "2018",
+      cover: "https://i.scdn.co/image/ab67616d0000b273072e9faef2ef7b6db63834a3",
+      spotify: "https://open.spotify.com/track/35eyrbDQbpwy7d3UMfsuV4",
+    },
+    {
+      track: "Tous les garçons et les filles", artist: "Françoise Hardy", album: "Tous les garçons…", year: "1962",
+      cover: "",
+      spotify: "",
+    },
+    {
+      track: "Kletka", artist: "Molchat Doma", album: "Etazhi", year: "2018",
+      cover: "",
+      spotify: "",
+    },
+    {
+      track: "Don't Cry", artist: "J Dilla", album: "Donuts", year: "2006",
+      cover: "",
+      spotify: "",
+    },
+    {
+      track: "Ode To The Mets", artist: "The Strokes", album: "The New Abnormal", year: "2020",
+      cover: "",
+      spotify: "",
+    },
+    {
+      track: "São Paulo", artist: "The Weeknd & Anitta", album: "Hurry Up Tomorrow", year: "2025",
+      cover: "",
+      spotify: "",
+    },
+    {
+      track: "What Did I Miss?", artist: "Drake", album: "—", year: "2025",
+      cover: "",
+      spotify: "",
+    },
   ],
 
-  influences: "Travis · Ye · Drake · Frank · Don Toliver · Tame Impala · The Strokes · Molchat Doma · J Dilla · Bay Area classics · everything 2016",
+  influences: "Travis · Ye · Drake · Frank · Don Toliver · Tame Impala · The Strokes · Molchat Doma · J Dilla · everything 2016",
 };
 
-/* ─── Loader: local DATA, or fetch from Apps Script ─── */
 async function loadData() {
   if (!USE_SHEETS) return DATA;
   try {
-    /*const res = await fetch(SHEETS_URL + "?t=" + Date.now()); */
-    const res = await fetch(SHEETS_URL);
+    const res = await fetch(SHEETS_URL + "?t=" + Date.now());
     if (!res.ok) throw new Error("Sheets fetch failed");
     return await res.json();
   } catch (e) {
